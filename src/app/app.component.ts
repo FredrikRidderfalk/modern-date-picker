@@ -35,12 +35,11 @@ export class AppComponent {
     this.suggestedRanges = [];
     if (num) {
       const types = type ? [type] : ['minutes', 'hours', 'days', 'weeks'];
-      // Fix here: each function should use its parameter
       this.suggestedRanges = types
-        .map((t) => `Last ${num} ${this.normalizeTimeType(t)}`) // 't' is defined here
+        .map((t) => `Last ${num} ${this.normalizeTimeType(t)}`)
         .filter((range) =>
           this.isValidTimeType(range.replace(/^Last \d+ /, ''))
-        ); // 'range' used correctly
+        );
     } else {
       this.suggestedRanges = this.defaultRanges.map((range) => range.display);
     }
