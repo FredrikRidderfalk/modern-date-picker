@@ -16,6 +16,8 @@ export class AppComponent {
   selectedRange: string | null = null;
   suggestedRanges: string[] = [];
 
+  isDropdownOpen: boolean = false;
+
   defaultRanges = [
     { display: 'Last hour', duration: '1h' },
     { display: 'Last 24 hours', duration: '24h' },
@@ -25,6 +27,10 @@ export class AppComponent {
 
   constructor() {
     this.suggestedRanges = this.defaultRanges.map((range) => range.display);
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   updateTimeSuggestions(value: string): void {
